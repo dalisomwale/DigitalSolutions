@@ -472,12 +472,58 @@ img {
 
 .story-image {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .story-image img {
     width: 100%;
+    max-width: 500px;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
+    object-fit: cover;
+    height: auto;
+}
+
+/* Philosophy Paragraph Styles */
+.philosophy-paragraph {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.philosophy-title {
+    color: var(--primary-dark);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.philosophy-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-blue), var(--accent-teal));
+    border-radius: 2px;
+}
+
+.philosophy-paragraph p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    text-align: left;
+    background: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    font-style: normal;
 }
 
 .purpose-section {
@@ -532,47 +578,73 @@ img {
     margin-bottom: 1.5rem;
 }
 
+/* FIXED TEAM SECTION - Proper Alignment */
 .team-section {
     padding: 5rem 0;
     background-color: #f1f5f9;
     border-radius: var(--radius-lg);
+    text-align: center;
 }
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
+    align-items: start;
 }
 
 .team-member {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: white;
     padding: 2.5rem 2rem;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
+    height: 100%;
+    transition: var(--transition-base);
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
 }
 
 .team-member img {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1.5rem;
     border: 4px solid var(--accent-teal);
+    transition: var(--transition-base);
+}
+
+.team-member:hover img {
+    border-color: var(--primary-blue);
+    transform: scale(1.05);
+}
+
+.team-member h3 {
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
 }
 
 .role {
     color: var(--primary-blue);
     font-weight: 600;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
 .bio {
-    color: var(--text-light);
+    color: var(--text-medium);
     font-size: 0.95rem;
     line-height: 1.6;
+    margin-top: auto;
 }
 
 /* ============================================
@@ -966,6 +1038,11 @@ img {
     
     .story-section {
         flex-direction: column;
+        text-align: center;
+    }
+    
+    .story-content h2 {
+        text-align: center;
     }
     
     .contact-wrapper {
@@ -978,6 +1055,12 @@ img {
     
     .contact-header h1 {
         font-size: 3rem;
+    }
+    
+    /* Team Grid - 2 columns on tablet */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
     }
 }
 
@@ -1030,6 +1113,10 @@ img {
         font-size: 2rem;
     }
     
+    .philosophy-title {
+        font-size: 1.8rem;
+    }
+    
     .action-buttons, .cta-buttons {
         flex-direction: column;
         align-items: center;
@@ -1067,9 +1154,16 @@ img {
         object-fit: cover;
     }
     
+    /* Team Grid - 1 column on mobile */
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 400px;
+    }
+    
     .team-member img {
-        width: 140px;
-        height: 140px;
+        width: 160px;
+        height: 160px;
     }
     
     .footer-container {
@@ -1079,6 +1173,17 @@ img {
     
     .footer-social, .social-links {
         justify-content: center;
+    }
+    
+    .philosophy-paragraph {
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+    }
+    
+    .philosophy-paragraph p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        text-align: center;
     }
 }
 
@@ -1108,9 +1213,12 @@ img {
         font-size: 1.8rem;
     }
     
+    .philosophy-title {
+        font-size: 1.6rem;
+    }
+    
     .expertise-grid,
-    .values-grid,
-    .team-grid {
+    .values-grid {
         grid-template-columns: 1fr;
     }
     
@@ -1141,6 +1249,25 @@ img {
     .brand i {
         font-size: 1.75rem;
     }
+    
+    .team-member {
+        padding: 2rem 1.5rem;
+    }
+    
+    .team-member img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .philosophy-paragraph {
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+    }
+    
+    .philosophy-paragraph p {
+        font-size: 1rem;
+        text-align: justify;
+    }
 }
 
 /* Large Desktop Devices (Above 1400px) */
@@ -1155,6 +1282,16 @@ img {
     
     .page-title {
         font-size: 4rem;
+    }
+    
+    .team-grid {
+        max-width: 1400px;
+        gap: 4rem;
+    }
+    
+    .team-member img {
+        width: 200px;
+        height: 200px;
     }
 }
 
@@ -1176,74 +1313,50 @@ img {
     }
 }
 
-/* Philosophy Paragraph - Clean Regular Paragraph Style */
-.philosophy-paragraph {
-    width: 1200px;
-    margin: 1rem auto;
-}
-
-.philosophy-title {
-    color: var(--primary-dark);
-    font-size: 2.2rem;
+/* ============================================
+   FIXED IMAGE ALIGNMENT FOR TEAM SECTION
+   ============================================ */
+.team-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 1.5rem;
-    text-align: center;
+}
+
+.team-image-container img {
+    object-position: center top; /* Ensures faces are properly centered */
+}
+
+/* Fix for LinkedIn URL in footer */
+a[href^="www."] {
     position: relative;
-    padding-bottom: 1rem;
 }
 
-.philosophy-title::after {
-    content: '';
+a[href^="www."]::before {
+    content: "https://";
+    opacity: 0;
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(to right, var(--primary-blue), var(--accent-teal));
-    border-radius: 2px;
 }
 
-.philosophy-paragraph p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-dark);
-    background: transparent;
-    padding: 0;
-    border: none;
-    box-shadow: none;
-    font-style: normal;
+/* ============================================
+   BACKGROUND IMAGE ENHANCEMENTS (Optional)
+   ============================================ */
+.story-image img {
+    object-position: center;
+    transition: transform 0.5s ease;
 }
 
-.philosophy-paragraph p::before,
-.philosophy-paragraph p::after {
-    display: none;
+.story-image:hover img {
+    transform: scale(1.02);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .philosophy-paragraph {
-        margin: 3rem auto;
-        padding: 0 1.5rem;
-    }
-    
-    .philosophy-title {
-        font-size: 1.8rem;
-    }
-    
-    .philosophy-paragraph p {
-        font-size: 1.1rem;
-        line-height: 1.7;
-    }
+.team-member img {
+    object-position: center;
 }
 
-@media (max-width: 480px) {
-    .philosophy-paragraph {
-        margin: 2.5rem auto;
-        padding: 0 1rem;
-    }
-    
-    .philosophy-paragraph p {
-        font-size: 1rem;
-        text-align: justify;
-    }
+/* Ensure all images maintain aspect ratio */
+img {
+    height: auto;
+    max-width: 100%;
 }

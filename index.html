@@ -7,6 +7,504 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles specific to home page */
+        .hero-highlight {
+            color: var(--accent-teal);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-teal));
+            border-radius: 2px;
+        }
+        
+        /* Enhanced Content Sections */
+        .content-rich-section {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-with-image {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-content {
+            padding: 2rem;
+        }
+        
+        .section-content h2 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+        
+        .section-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .section-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .section-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .section-image:hover .image-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-teal);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-item h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Service Details Enhanced */
+        .service-details {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+        
+        .service-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .service-tab {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+        }
+        
+        .service-tab:hover,
+        .service-tab.active {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+        
+        .service-content {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            display: none;
+        }
+        
+        .service-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-item-mini {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .feature-icon-mini {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
+        }
+        
+        /* Process Section Enhanced */
+        .process-section {
+            padding: 5rem 5%;
+            background: #f8fafc;
+            border-radius: var(--radius-xl);
+            margin: 4rem auto;
+            max-width: 1200px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .process-step {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step-title {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .step-description {
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+        
+        /* CTA Section - Enhanced */
+        .cta-section {
+            background: var(--primary-dark);
+            padding: 6rem 5%;
+            text-align: center;
+            color: white;
+            border-radius: var(--radius-xl);
+            margin: 5rem auto;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/images/cta-pattern.png') center/cover;
+            opacity: 0.1;
+        }
+        
+        .cta-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Stats Banner */
+        .stats-banner {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1e293b 100%);
+            padding: 4rem 2rem;
+            border-radius: var(--radius-xl);
+            margin: 4rem auto;
+            max-width: 1200px;
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            padding: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .section-with-image {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .section-image img {
+                height: 350px;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .welcome-section {
+                text-align: center;
+            }
+            
+            .main-title {
+                font-size: 2.2rem;
+                line-height: 1.3;
+            }
+            
+            .content-rich-section,
+            .service-details {
+                margin: 3rem auto;
+                padding: 0 1rem;
+            }
+            
+            .section-content {
+                padding: 1rem;
+            }
+            
+            .section-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .service-tabs {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .service-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .process-section {
+                padding: 3rem 2rem;
+                margin: 3rem 1rem;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-step {
+                padding: 2rem;
+            }
+            
+            .cta-section {
+                padding: 4rem 2rem;
+                margin: 3rem 1rem;
+            }
+            
+            .cta-title {
+                font-size: 2.2rem;
+            }
+            
+            .cta-description {
+                font-size: 1.1rem;
+            }
+            
+            .stats-banner {
+                padding: 3rem 1.5rem;
+                margin: 3rem 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .section-content h2 {
+                font-size: 1.6rem;
+            }
+            
+            .feature-item {
+                padding: 2rem;
+            }
+            
+            .service-tab {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Image enhancement for home page */
+        .welcome-visual img {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            border-radius: var(--radius-xl);
+        }
+        
+        .welcome-visual img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Benefit List */
+        .benefit-list {
+            margin: 2rem 0;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+        }
+        
+        .benefit-icon {
+            color: var(--success-green);
+            font-size: 1.2rem;
+        }
+        
+        /* Technology Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-item {
+            background: var(--light-bg);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            border: 1px solid var(--border-color);
+        }
+    </style>
 </head>
 <body>
     <!-- Header Navigation -->
@@ -21,9 +519,9 @@
                 <li><a href="about.html" class="nav-link"><i class="fas fa-users"></i> About</a></li>
                 <li><a href="contact.html" class="nav-link"><i class="fas fa-comments"></i> Contact</a></li>
             </ul>
-            <div class="mobile-toggle">
+            <button class="mobile-toggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </nav>
     </header>
 
@@ -33,63 +531,215 @@
         <section class="welcome-section">
             <div class="welcome-text">
                 <h1 class="main-title">We Build Websites & Mobile Apps To Elevate Brands!</h1>
-                <p class="tagline">Transforming raw ideas into powerful digital solutions that drive business growth.</p>
+                <p class="tagline">Transforming raw ideas into powerful digital solutions that drive business growth and innovation across Zambia and beyond. Our team combines technical expertise with creative vision to deliver exceptional digital experiences.</p>
                 <div class="action-buttons">
-                    <a href="about.html" class="cta-button primary">Discover Our Approach</a>
-                    <a href="contact.html" class="cta-button outline">Start a Conversation</a>
+                    <a href="about.html" class="cta-button primary">
+                        <i class="fas fa-rocket"></i> Discover Our Approach
+                    </a>
+                    <a href="contact.html" class="cta-button outline">
+                        <i class="fas fa-comments"></i> Start a Conversation
+                    </a>
                 </div>
             </div>
             <div class="welcome-visual">
-                <img src="assets/images/home.jpg" alt="Collaborative digital workspace">
+                <img src="assets/images/home.jpg" alt="Digital innovation and technology solutions">
             </div>
         </section>
 
-        <!-- Our Expertise -->
+        <!-- About Our Approach -->
+        <section class="content-rich-section">
+            <div class="section-with-image">
+                <div class="section-image">
+                    <img src="assets/images/teamwork.jpg" alt="Our collaborative approach">
+                    <div class="image-overlay">
+                        <p>Collaborative Development Process</p>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <h2>Our Collaborative Approach</h2>
+                    <p>At DigitalSolutions, we believe the best results come from working closely with our clients. Our approach begins with deep understanding – we take time to learn about your business, your goals, and your unique challenges before writing a single line of code.</p>
+                    <p>We combine agile methodologies with strategic planning to ensure your project stays on track while remaining flexible enough to adapt to changing requirements. Our transparent communication ensures you're involved at every stage, from initial concept to final deployment.</p>
+                    <div class="benefit-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle benefit-icon"></i>
+                            <span>Regular progress updates and milestone reviews</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle benefit-icon"></i>
+                            <span>Flexible engagement models tailored to your needs</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle benefit-icon"></i>
+                            <span>Continuous testing and quality assurance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Services -->
         <section class="expertise-section">
-            <h2 class="section-title">Our Services</h2>
+            <h2 class="section-title">Our Comprehensive Services</h2>
             <div class="expertise-grid">
                 <article class="expertise-card">
                     <div class="card-icon">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <h3>Custom Web Platforms</h3>
-                    <p>Creating responsive, user-friendly websites with modern frameworks and best practices</p>
+                    <h3>Custom Web Development</h3>
+                    <p>We create responsive, user-friendly websites with modern frameworks and best practices. From simple brochure sites to complex web applications, we build solutions that drive engagement and deliver results.</p>
                 </article>
                 <article class="expertise-card">
                     <div class="card-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Mobile Applications</h3>
-                    <p>Developing cross-platform mobile solutions for iOS and Android environments</p>
+                    <h3>Mobile Application Development</h3>
+                    <p>Developing cross-platform mobile solutions for iOS and Android environments. We create apps that provide seamless user experiences while meeting your business objectives and technical requirements.</p>
                 </article>
                 <article class="expertise-card">
                     <div class="card-icon">
                         <i class="fas fa-microchip"></i>
                     </div>
                     <h3>IoT & Smart Automation</h3>
-                    <p>Developing intelligent IoT solutions including smart home systems, automated irrigation, and connected security networks</p>
+                    <p>Developing intelligent IoT solutions including smart home systems, automated irrigation, and connected security networks. We bridge the physical and digital worlds to create smarter, more efficient environments.</p>
                 </article>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="content-rich-section">
+            <div class="section-with-image" style="grid-template-columns: 1fr 1fr;">
+                <div class="section-content">
+                    <h2>Why Businesses Choose DigitalSolutions</h2>
+                    <p>With years of experience serving Zambian businesses across various industries, we understand the unique challenges and opportunities in our market. Our solutions are designed not just to work technically, but to deliver real business value.</p>
+                    <p>We pride ourselves on building long-term relationships with our clients. Many of our customers have been with us for years, relying on us for ongoing support, maintenance, and new development as their businesses grow.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-handshake feature-icon"></i>
+                            <h3>Proven Track Record</h3>
+                            <p>Successful projects delivered to satisfied clients across Zambia</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users feature-icon"></i>
+                            <h3>Dedicated Team</h3>
+                            <p>Experienced developers, designers, and project managers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-image">
+                    <img src="assets/images/why.jpg" alt="Our team in action">
+                    <div class="image-overlay">
+                        <p>Dedicated Development Team</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stack -->
+        <section class="process-section">
+            <h2 class="section-title">Our Technology Expertise</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: var(--text-medium);">
+                We work with modern technologies to build robust, scalable, and future-proof solutions for our clients.
+            </p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fab fa-react feature-icon"></i>
+                    <h3>Frontend Development</h3>
+                    <p>React, Vue.js, Angular, HTML5, CSS3, JavaScript ES6+</p>
+                    <div class="tech-stack">
+                        <span class="tech-item">React</span>
+                        <span class="tech-item">Vue.js</span>
+                        <span class="tech-item">TypeScript</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fab fa-node-js feature-icon"></i>
+                    <h3>Backend Development</h3>
+                    <p>Node.js, Python, PHP, Express.js, Django, Laravel</p>
+                    <div class="tech-stack">
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">MySQL</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mobile feature-icon"></i>
+                    <h3>Mobile Development</h3>
+                    <p>React Native, Flutter, Swift, Kotlin, Android Studio</p>
+                    <div class="tech-stack">
+                        <span class="tech-item">React Native</span>
+                        <span class="tech-item">Flutter</span>
+                        <span class="tech-item">Firebase</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section">
+            <h2 class="section-title">Our Development Process</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: var(--text-medium);">
+                We follow a structured yet flexible process to ensure quality, transparency, and timely delivery of every project.
+            </p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Discovery & Planning</h3>
+                    <p class="step-description">We begin with comprehensive requirements gathering, market research, and strategic planning to define project scope, timeline, and success metrics.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Design & Prototyping</h3>
+                    <p class="step-description">Our designers create wireframes and interactive prototypes, ensuring the user experience is intuitive and aligns with your brand identity.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Development & Testing</h3>
+                    <p class="step-description">Using agile methodologies, we develop in sprints with continuous testing, regular demos, and iterative improvements based on your feedback.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Deployment & Support</h3>
+                    <p class="step-description">We handle deployment, provide training, and offer ongoing maintenance and support to ensure your solution continues to perform optimally.</p>
+                </div>
             </div>
         </section>
 
         <!-- Client Stories -->
         <section class="testimonials-section">
             <h2 class="section-title">Trusted by Industry Leaders</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: var(--text-medium);">
+                Hear what our clients have to say about their experience working with DigitalSolutions.
+            </p>
+            
             <div class="testimonials-container">
                 <blockquote class="testimonial-card">
-                    <p>"The team delivered a platform that exceeded our expectations. Their attention to detail and commitment to quality is remarkable."</p>
+                    <p>"The team delivered a platform that exceeded our expectations. Their attention to detail and commitment to quality is remarkable. They understood our business needs and translated them into a solution that has significantly improved our operational efficiency."</p>
                     <footer class="client-info">
                         <strong>Edson Bwalya</strong>
                         <span>Operations Director, Progress Peanut Butter</span>
                     </footer>
                 </blockquote>
                 <blockquote class="testimonial-card">
-                    <p>"From concept to launch, the process was smooth and transparent. They truly understand how to translate business needs into technical solutions."</p>
+                    <p>"From concept to launch, the process was smooth and transparent. They truly understand how to translate business needs into technical solutions. The mobile app they developed has increased our customer engagement by 40% in just three months."</p>
                     <footer class="client-info">
                         <strong>Lewis Sampa</strong>
                         <span>Founder, Sampa Innovations</span>
                     </footer>
                 </blockquote>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">Ready to Transform Your Digital Presence?</h2>
+            <p class="cta-description">Whether you need a new website, a mobile app, or IoT solutions, our team is ready to help bring your vision to life. We offer free initial consultations to understand your needs and propose the right solution for your business.</p>
+            <div class="action-buttons">
+                <a href="contact.html" class="cta-button primary" style="background: white; color: var(--primary-dark);">
+                    <i class="fas fa-paper-plane"></i> Start Your Project
+                </a>
             </div>
         </section>
     </main>
@@ -99,27 +749,51 @@
         <div class="footer-container">
             <div class="footer-column">
                 <h3>DigitalSolutions Hub</h3>
-                <p>Providing tailored technology solutions to help businesses thrive in today's digital landscape since 2019.</p>
+                <p>Providing tailored technology solutions to help businesses thrive in today's digital landscape since 2020. We combine technical expertise with creative vision to deliver exceptional results.</p>
             </div>
             <div class="footer-column">
-                <h3>Explore More</h3>
+                <h3>Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">Our Story</a></li>
                     <li><a href="contact.html">Get in Touch</a></li>
+                    <li><a href="#services">Our Services</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>Connect Online</h3>
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#web-dev">Web Development</a></li>
+                    <li><a href="#mobile-apps">Mobile Applications</a></li>
+                    <li><a href="#iot">IoT Solutions</a></li>
+                    <li><a href="#consulting">Digital Consulting</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect With Us</h3>
                 <div class="social-links">
-                    <a href="www.linkedin.com/in/daliso-mwale" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/dalisomwale" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://wa.me/260765635768" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/daliso-mwale" aria-label="LinkedIn" title="Connect on LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/dalisomwale" aria-label="GitHub" title="View our GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/260765635768" aria-label="WhatsApp" title="Message us on WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:deeroids06@gmail.com" aria-label="Email" title="Send us an email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 DigitalSolutions. All rights reserved. | deeroids06@gmail.com</p>
+            <p>&copy; 2025 DigitalSolutions. All rights reserved. | deeroids06@gmail.com | +260 765635768</p>
+            <p class="footer-links">
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Cookie Policy</a>
+            </p>
         </div>
     </footer>
 
@@ -130,8 +804,80 @@
         
         mobileToggle.addEventListener('click', function() {
             navMenu.classList.toggle('show');
-            this.querySelector('i').classList.toggle('fa-times');
-            this.querySelector('i').classList.toggle('fa-bars');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add hover effect to expertise cards
+        const expertiseCards = document.querySelectorAll('.expertise-card, .feature-item');
+        expertiseCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.card-icon i, .feature-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1.2) rotate(5deg)';
+                    icon.style.transition = 'transform 0.3s ease';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.card-icon i, .feature-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1) rotate(0)';
+                }
+            });
+        });
+
+        // Image hover effect enhancement
+        const sectionImages = document.querySelectorAll('.section-image img');
+        sectionImages.forEach(img => {
+            img.parentElement.addEventListener('mouseenter', () => {
+                img.style.transform = 'scale(1.05)';
+            });
+            
+            img.parentElement.addEventListener('mouseleave', () => {
+                img.style.transform = 'scale(1)';
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe process steps and feature items
+        document.querySelectorAll('.process-step, .feature-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
         });
     </script>
 </body>
