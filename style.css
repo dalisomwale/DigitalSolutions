@@ -267,11 +267,11 @@ img {
     justify-content: space-between;
     padding: var(--space-xxl) 5%;
     gap: var(--space-xl);
-    min-height: 30vh;
+    min-height: 40vh;
 }
 
 .welcome-text {
-    flex: 4;
+    flex: 2;
     max-width: 600px;
 }
 
@@ -285,7 +285,7 @@ img {
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
     object-fit: cover;
-    min-height: 60vh;
+    min-height: 30svh;
 }
 
 .action-buttons {
@@ -1173,5 +1173,77 @@ img {
     a {
         color: black;
         text-decoration: underline;
+    }
+}
+
+/* Philosophy Paragraph - Clean Regular Paragraph Style */
+.philosophy-paragraph {
+    width: 1200px;
+    margin: 1rem auto;
+}
+
+.philosophy-title {
+    color: var(--primary-dark);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.philosophy-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-blue), var(--accent-teal));
+    border-radius: 2px;
+}
+
+.philosophy-paragraph p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    background: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    font-style: normal;
+}
+
+.philosophy-paragraph p::before,
+.philosophy-paragraph p::after {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .philosophy-paragraph {
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+    }
+    
+    .philosophy-title {
+        font-size: 1.8rem;
+    }
+    
+    .philosophy-paragraph p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+}
+
+@media (max-width: 480px) {
+    .philosophy-paragraph {
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+    }
+    
+    .philosophy-paragraph p {
+        font-size: 1rem;
+        text-align: justify;
     }
 }
