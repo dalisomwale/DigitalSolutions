@@ -6,7 +6,7 @@
     <title>Our Story | DigitalSolutions</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header Navigation -->
@@ -21,132 +21,278 @@
                 <li><a href="about.html" class="nav-link active"><i class="fas fa-users"></i> About</a></li>
                 <li><a href="contact.html" class="nav-link"><i class="fas fa-comments"></i> Contact</a></li>
             </ul>
-            <div class="mobile-toggle">
+            <button class="mobile-toggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="content-wrapper">
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <span class="hero-badge">🌟 Our Story</span>
+            <h1 class="page-title">Transforming Ideas Into <span class="gradient-text">Digital Reality</span></h1>
+            <p class="page-subtitle">Building the future of technology in Zambia, one innovative solution at a time</p>
+        </div>
+    </section>
 
-        <!-- Our Journey -->
-        <section class="story-section">
-            <div class="story-content">
-                <h2>About Us</h2>
-                <p>In 2020, a group of technology enthusiasts came together with a shared vision: to bridge the gap between innovative ideas and practical digital solutions. What started as a modest team working from a shared workspace has evolved into a collaborative agency with a diverse portfolio.</p>
-                <p>We believe technology should simplify complexity, not add to it. Every project we undertake is approached with this philosophy at its core, ensuring our solutions are both powerful and intuitive.</p>
-            </div>
-            <div class="story-image">
-                <img src="assets/images/about-us.jpg" alt="Team collaboration session">
-            </div>
-        </section>
-
-        <!-- Add this in your about.html - Before Goal & Vision sections -->
-<div class="philosophy-paragraph">
-    <h2 class="philosophy-title">Our Guiding Philosophy</h2>
-    <p>
-        Our journey began with a simple observation: technology in Africa often feels imported rather than homegrown. At DigitalSolutions, we're changing that narrative by developing solutions that speak the language of Zambian enterprise while embracing global standards. We believe digital transformation should feel intuitive, relevant, and empowering—not overwhelming. Every project we undertake is guided by this principle, ensuring our web platforms, mobile applications, and IoT systems don't just function technically but resonate culturally and operationally with the businesses they serve.
-    </p>
-</div>
-
-        <!-- Purpose Section -->
-        <section class="purpose-section">
-            <div class="purpose-card">
-                <div class="purpose-icon">
-                    <i class="fas fa-rocket"></i>
+    <!-- Our Journey -->
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-content">
+                <div class="journey-text">
+                    <span class="section-badge">Our Journey</span>
+                    <h2>From Vision to Reality</h2>
+                    <p>In 2020, a group of technology enthusiasts came together with a shared vision: to bridge the gap between innovative ideas and practical digital solutions. What started as a modest team working from a shared workspace has evolved into a collaborative agency with a diverse portfolio.</p>
+                    <p>We believe technology should simplify complexity, not add to it. Every project we undertake is approached with this philosophy at its core, ensuring our solutions are both powerful and intuitive.</p>
+                    <div class="journey-stats">
+                        <div class="journey-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-value">5+</div>
+                                <div class="stat-label">Years of Excellence</div>
+                            </div>
+                        </div>
+                        <div class="journey-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-value">50+</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                        </div>
+                        <div class="journey-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-value">40+</div>
+                                <div class="stat-label">Happy Clients</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3>Our Goal</h3>
-                <p>To design and implement digital solutions that empower organizations to achieve their strategic objectives efficiently and effectively.</p>
-            </div>
-            <div class="purpose-card">
-                <div class="purpose-icon">
-                    <i class="fas fa-binoculars"></i>
-                </div>
-                <h3>Our Vision</h3>
-                <p>To become the preferred technology partner for forward-thinking businesses navigating digital transformation journeys.</p>
-            </div>
-        </section>
-
-        <!-- Core Values -->
-        <section class="values-section">
-            <h2 class="section-title">Our Values</h2>
-            <div class="values-grid">
-                <div class="value-item">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Creative Thinking</h3>
-                    <p>Constantly exploring novel approaches and embracing emerging technologies</p>
-                </div>
-                <div class="value-item">
-                    <i class="fas fa-puzzle-piece"></i>
-                    <h3>Collaborative Spirit</h3>
-                    <p>Working alongside clients as partners throughout the development process</p>
-                </div>
-                <div class="value-item">
-                    <i class="fas fa-award"></i>
-                    <h3>Quality Commitment</h3>
-                    <p>Delivering work that meets the highest standards of excellence and reliability</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Leadership Team -->
-        <section class="team-section">
-            <h2 class="section-title">Meet Our Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="assets/images/daliso.jpeg" alt="Alex Morgan">
-                    <h3>Daliso Mwale</h3>
-                    <p class="role">CEO & Developer</p>
-                    <p class="bio">5+ years leading technology initiatives and Specialist in IoT architecture and embedded systems.</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/images/lawrence.jpeg" alt="Samantha Chen">
-                    <h3>Lawrence Chitandula</h3>
-                    <p class="role">Chief Technology Officer</p>
-                    <p class="bio">Specialist in software development, business understanding and system deployment.</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/images/esau.jpeg" alt="David Park">
-                    <h3>Esau Ngoma</h3>
-                    <p class="role">Lead Development Director</p>
-                    <p class="bio">Expert in software engineering, full-stack development, testing and scalable system design.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Site Footer -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>DigitalSolutions Hub</h3>
-                <p>Providing tailored technology solutions to help businesses thrive in today's digital landscape since 2020.</p>
-            </div>
-            <div class="footer-column">
-                <h3>Explore More</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home Page</a></li>
-                    <li><a href="about.html">Our Story</a></li>
-                    <li><a href="contact.html">Get in Touch</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Connect Online</h3>
-                <div class="social-links">
-                    <a href="www.linkedin.com/in/daliso-mwale" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/dalisomwale" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://wa.me/260765635768" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <div class="journey-image">
+                    <img src="assets/images/about-us.jpg" alt="Team collaboration">
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 DigitalSolutions. All rights reserved. | deeroids06@gmail.com</p>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="philosophy-content">
+                <span class="section-badge">Our Philosophy</span>
+                <h2>Built for Africa, Designed for the World</h2>
+                <p>Our journey began with a simple observation: technology in Africa often feels imported rather than homegrown. At DigitalSolutions, we're changing that narrative by developing solutions that speak the language of Zambian enterprise while embracing global standards.</p>
+                <p>We believe digital transformation should feel intuitive, relevant, and empowering—not overwhelming. Every project we undertake is guided by this principle, ensuring our web platforms, mobile applications, and IoT systems don't just function technically but resonate culturally and operationally with the businesses they serve.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision-section">
+        <div class="container">
+            <div class="mission-vision-grid">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To design and implement digital solutions that empower organizations to achieve their strategic objectives efficiently and effectively, while fostering innovation and growth in the African tech ecosystem.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-binoculars"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To become the preferred technology partner for forward-thinking businesses navigating digital transformation journeys across Africa and beyond.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="values-section-modern">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Values</span>
+                <h2 class="section-title">What Drives Us</h2>
+                <p class="section-subtitle">The principles that guide every decision we make</p>
+            </div>
+
+            <div class="values-grid-modern">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Constantly exploring novel approaches and embracing emerging technologies to deliver cutting-edge solutions.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>Working alongside clients as partners throughout the development process, ensuring shared success.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>Delivering work that meets the highest standards of quality, reliability, and performance.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>Building trust through transparency, honesty, and ethical business practices in every interaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section-modern">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Team</span>
+                <h2 class="section-title">Meet the Minds Behind the Magic</h2>
+                <p class="section-subtitle">Passionate technologists dedicated to your success</p>
+            </div>
+
+            <div class="team-grid-modern">
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="assets/images/daliso.jpeg" alt="Daliso Mwale">
+                        <div class="team-social">
+                            <a href="https://www.linkedin.com/in/daliso-mwale" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/dalisomwale" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Daliso Mwale</h3>
+                        <p class="role">CEO & Lead Developer</p>
+                        <p class="bio">5+ years leading technology initiatives and specialist in IoT architecture and embedded systems.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="assets/images/lawrence.jpeg" alt="Lawrence Chitandula">
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Lawrence Chitandula</h3>
+                        <p class="role">Chief Technology Officer</p>
+                        <p class="bio">Specialist in software development, business understanding and system deployment.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="assets/images/esau.jpeg" alt="Esau Ngoma">
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Esau Ngoma</h3>
+                        <p class="role">Lead Development Director</p>
+                        <p class="bio">Expert in software engineering, full-stack development, testing and scalable system design.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-modern">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's work together to bring your digital vision to life</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-cta-primary">
+                        <i class="fas fa-paper-plane"></i> Get In Touch
+                    </a>
+                    <a href="index.html" class="btn-cta-secondary">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <div class="footer-brand">
+                        <i class="fas fa-code-branch"></i>
+                        <span>DigitalSolutions</span>
+                    </div>
+                    <p>Providing tailored technology solutions to help businesses thrive in today's digital landscape since 2020.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/daliso-mwale" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/dalisomwale" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://wa.me/260765635768" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:deeroids06@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="index.html#services">Web Development</a></li>
+                        <li><a href="index.html#services">Mobile Apps</a></li>
+                        <li><a href="index.html#services">IoT Solutions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +260 765635768</li>
+                        <li><i class="fas fa-envelope"></i> deeroids06@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Lusaka, Zambia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 DigitalSolutions. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Mobile navigation toggle
+        // Mobile navigation
         const mobileToggle = document.querySelector('.mobile-toggle');
         const navMenu = document.querySelector('.nav-menu');
         
@@ -154,6 +300,22 @@
             navMenu.classList.toggle('show');
             this.querySelector('i').classList.toggle('fa-times');
             this.querySelector('i').classList.toggle('fa-bars');
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
