@@ -9,6 +9,304 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <style>
+      /* ---------- PROJECT CARDS ---------- */
+      .featured-projects {
+        padding: 4rem 0;
+        background: #f8fafc;
+      }
+      .featured-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 2rem;
+        margin-top: 2.5rem;
+      }
+      .project-card-featured {
+        background: #fff;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+      .project-card-featured:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+      }
+      .project-card-featured .project-image {
+        position: relative;
+        padding-top: 66.67%;
+        background: #1e293b;
+        overflow: hidden;
+      }
+      .project-card-featured .project-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        transition: transform 0.4s ease;
+      }
+      .project-card-featured:hover .project-image img {
+        transform: scale(1.02);
+      }
+      .project-card-featured .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .project-card-featured:hover .project-overlay {
+        opacity: 1;
+      }
+      .project-card-featured .project-link {
+        background: #fff;
+        color: #0f172a;
+        padding: 0.6rem 1.2rem;
+        border-radius: 2rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .project-card-featured .project-link:hover {
+        background: #e2e8f0;
+        transform: translateY(-2px);
+      }
+      .project-card-featured .project-info {
+        padding: 1.25rem 1.25rem 1.5rem;
+        border-top: 1px solid #f1f5f9;
+      }
+      .project-card-featured .project-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+        color: #0f172a;
+      }
+      .project-card-featured .project-info p {
+        color: #475569;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 0.75rem;
+      }
+      .project-card-featured .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .project-card-featured .project-tech span {
+        background: #f1f5f9;
+        color: #334155;
+        padding: 0.2rem 0.7rem;
+        border-radius: 1rem;
+        font-size: 0.7rem;
+        font-weight: 500;
+      }
+      .featured-cta {
+        text-align: center;
+        margin-top: 2.5rem;
+      }
+      .featured-cta .btn-outline {
+        background: transparent;
+        border: 2px solid #0f172a;
+        color: #0f172a;
+        padding: 0.75rem 2rem;
+        border-radius: 2.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .featured-cta .btn-outline:hover {
+        background: #0f172a;
+        color: #fff;
+      }
+
+      /* ---------- TESTIMONIALS CAROUSEL - REDUCED SIZE ---------- */
+      .testimonials-section {
+        padding: 3rem 0;
+        background: #f8fafc;
+      }
+      .testimonials-carousel {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 0.75rem;
+        background: transparent;
+      }
+      .testimonials-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        will-change: transform;
+      }
+      .testimonial-card-modern {
+        flex: 0 0 100%;
+        padding: 0 0.75rem;
+        box-sizing: border-box;
+        opacity: 0.7;
+        transition: opacity 0.3s;
+        background: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        padding: 1.25rem 1rem;
+        margin: 0.25rem;
+        border: 1px solid #f1f5f9;
+      }
+      .testimonial-card-modern.active {
+        opacity: 1;
+      }
+      .testimonial-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.6rem;
+      }
+      .rating {
+        color: #f59e0b;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+      }
+      .quote-icon {
+        color: #3b82f6;
+        font-size: 1.2rem;
+        opacity: 0.3;
+      }
+      .testimonial-text {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: #334155;
+        margin-bottom: 0.8rem;
+        font-style: italic;
+      }
+      .testimonial-author h4 {
+        font-size: 0.85rem;
+        color: #0f172a;
+        margin-bottom: 0.1rem;
+      }
+      .testimonial-author p {
+        font-size: 0.7rem;
+        color: #64748b;
+        margin: 0;
+      }
+      .carousel-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+      .carousel-btn {
+        background: #0f172a;
+        color: #fff;
+        border: none;
+        width: 28px; /* reduced from 36px */
+        height: 28px; /* reduced from 36px */
+        border-radius: 50%;
+        font-size: 0.75rem; /* reduced */
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel-btn:hover {
+        background: #1e293b;
+        transform: scale(1.05);
+      }
+      .carousel-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .carousel-dots {
+        display: flex;
+        gap: 0.4rem;
+      }
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #cbd5e1;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        padding: 0;
+      }
+      .carousel-dot.active {
+        background: #0f172a;
+        transform: scale(1.2);
+      }
+      .carousel-dot:hover {
+        background: #94a3b8;
+      }
+
+      /* Responsive: show 2 cards on tablet, 3 on desktop */
+      @media (min-width: 768px) {
+        .testimonial-card-modern {
+          flex: 0 0 50%;
+        }
+      }
+      @media (min-width: 1024px) {
+        .testimonial-card-modern {
+          flex: 0 0 33.333%;
+        }
+      }
+      @media (max-width: 767px) {
+        .testimonial-card-modern {
+          flex: 0 0 100%;
+        }
+      }
+
+      /* Utility */
+      .gradient-text {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0f172a;
+      }
+      .section-subtitle {
+        color: #64748b;
+        font-size: 1.1rem;
+        margin-top: 0.25rem;
+      }
+    </style>
   </head>
   <body>
     <!-- Header -->
@@ -79,16 +377,18 @@
     </section>
 
     <!-- Services -->
-    <section class="services-modern">
+    <section class="services-modern" id="services">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Our Digital Services</h2>
+          <h2 class="section-title">
+            Our Digital <span class="gradient-text">Services</span>
+          </h2>
           <p class="section-subtitle">
             Empowering businesses with cutting-edge technology solutions
           </p>
         </div>
         <div class="services-grid-image">
-          <!-- Service 1: Web Development -->
+          <!-- Service 1 -->
           <article class="service-card-image">
             <div class="service-image-wrapper">
               <img
@@ -113,7 +413,7 @@
             </div>
           </article>
 
-          <!-- Service 2: Mobile App Development -->
+          <!-- Service 2 -->
           <article class="service-card-image featured">
             <div class="service-image-wrapper">
               <img
@@ -137,7 +437,7 @@
             </div>
           </article>
 
-          <!-- Service 3: IoT & Smart Automation -->
+          <!-- Service 3 -->
           <article class="service-card-image">
             <div class="service-image-wrapper">
               <img
@@ -164,11 +464,141 @@
       </div>
     </section>
 
+    <!-- Featured Projects -->
+    <section class="featured-projects" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Featured <span class="gradient-text">Projects</span>
+          </h2>
+          <p class="section-subtitle">
+            Some of the websites and apps we've built for our clients
+          </p>
+        </div>
+        <div class="featured-grid">
+          <!-- Project 1 -->
+          <div class="project-card-featured">
+            <div class="project-image">
+              <img
+                src="assets/proflight-inventory.png"
+                alt="Proflight Inventory"
+              />
+              <div class="project-overlay">
+                <a
+                  href="https://proflight-inventory.click/"
+                  target="_blank"
+                  class="project-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Proflight Inventory</h3>
+              <p>
+                Airline inventory management with real‑time tracking and
+                analytics.
+              </p>
+              <div class="project-tech">
+                <span>React</span><span>Node.js</span><span>MongoDB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card-featured">
+            <div class="project-image">
+              <img src="assets/fern-media-portfolio.png" alt="Fern Media" />
+              <div class="project-overlay">
+                <a
+                  href="https://fern-media-portfolio.vercel.app/"
+                  target="_blank"
+                  class="project-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Fern Media — Visual Storytelling</h3>
+              <p>
+                Premium photography portfolio with a cinematic, elegant design.
+              </p>
+              <div class="project-tech">
+                <span>Next.js</span><span>Tailwind</span
+                ><span>Framer Motion</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card-featured">
+            <div class="project-image">
+              <img
+                src="assets/digital-solutions.png"
+                alt="DigitalSolutions Agency"
+              />
+              <div class="project-overlay">
+                <a
+                  href="https://digital-solutions-six.vercel.app/"
+                  target="_blank"
+                  class="project-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>DigitalSolutions — Agency Site</h3>
+              <p>
+                Our own corporate website showcasing our services and client
+                success.
+              </p>
+              <div class="project-tech">
+                <span>React</span><span>Node.js</span><span>Tailwind</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card-featured">
+            <div class="project-image">
+              <img src="assets/umozisavings.png" alt="Umozi Savings" />
+              <div class="project-overlay">
+                <a
+                  href="https://www.umozisavings.com/"
+                  target="_blank"
+                  class="project-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Umozi Savings — Village Banking</h3>
+              <p>Community banking platform promoting financial inclusion.</p>
+              <div class="project-tech">
+                <span>React</span><span>Firebase</span><span>Tailwind</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="featured-cta">
+          <a href="web-development.html" class="btn-outline">
+            View All Projects <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Process -->
     <section class="process-section">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">How We Work</h2>
+          <h2 class="section-title">
+            How We <span class="gradient-text">Work</span>
+          </h2>
           <p class="section-subtitle">
             A structured yet flexible process ensuring quality and timely
             delivery
@@ -178,7 +608,6 @@
           <div class="process-step">
             <div class="step-number">01</div>
             <h3>Discovery &amp; Planning</h3>
-
             <p>
               Comprehensive requirements gathering, market research, and
               strategic planning to define scope and success metrics.
@@ -212,74 +641,98 @@
       </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials-section">
+    <!-- Testimonials Carousel -->
+    <section class="testimonials-section" id="testimonials">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">What Our Clients Say</h2>
+          <h2 class="section-title">
+            What Our Clients <span class="gradient-text">Say</span>
+          </h2>
           <p class="section-subtitle">Real feedback from satisfied clients</p>
         </div>
-        <div class="testimonials-grid-modern">
-          <div class="testimonial-card-modern">
-            <div class="testimonial-header">
-              <div class="rating">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i
-                ><i class="fas fa-star"></i><i class="fas fa-star"></i
-                ><i class="fas fa-star"></i>
+        <div class="testimonials-carousel">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <!-- Card 1 -->
+            <div class="testimonial-card-modern">
+              <div class="testimonial-header">
+                <div class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <i class="fas fa-quote-right quote-icon"></i>
               </div>
-              <i class="fas fa-quote-right quote-icon"></i>
+              <p class="testimonial-text">
+                The team exceeded our expectations. Their attention to detail
+                and commitment to quality is remarkable. They translated our
+                business needs into a solution that significantly improved
+                operational efficiency.
+              </p>
+              <div class="testimonial-author">
+                <h4>Edson Bwalya</h4>
+                <p>Operations Director, Progress Peanut Butter</p>
+              </div>
             </div>
-            <p class="testimonial-text">
-              The team exceeded our expectations. Their attention to detail and
-              commitment to quality is remarkable. They translated our business
-              needs into a solution that significantly improved operational
-              efficiency.
-            </p>
-            <div class="testimonial-author">
-              <h4>Edson Bwalya</h4>
-              <p>Operations Director, Progress Peanut Butter</p>
+            <!-- Card 2 -->
+            <div class="testimonial-card-modern">
+              <div class="testimonial-header">
+                <div class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <i class="fas fa-quote-right quote-icon"></i>
+              </div>
+              <p class="testimonial-text">
+                From concept to launch the process was smooth and transparent.
+                They truly understand how to translate business needs into
+                technical solutions. The mobile app increased customer
+                engagement by 40% in three months.
+              </p>
+              <div class="testimonial-author">
+                <h4>Lewis Sampa</h4>
+                <p>Founder, Sampa Innovations</p>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="testimonial-card-modern">
+              <div class="testimonial-header">
+                <div class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <i class="fas fa-quote-right quote-icon"></i>
+              </div>
+              <p class="testimonial-text">
+                Professional, skilled, and genuinely invested in our success.
+                The IoT solution they built for our farm has transformed how we
+                manage irrigation and monitoring. Highly recommend.
+              </p>
+              <div class="testimonial-author">
+                <h4>Christine Mwansa</h4>
+                <p>Director, Agri-Connect Zambia</p>
+              </div>
             </div>
           </div>
 
-          <div class="testimonial-card-modern">
-            <div class="testimonial-header">
-              <div class="rating">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i
-                ><i class="fas fa-star"></i><i class="fas fa-star"></i
-                ><i class="fas fa-star"></i>
-              </div>
-              <i class="fas fa-quote-right quote-icon"></i>
-            </div>
-            <p class="testimonial-text">
-              From concept to launch the process was smooth and transparent.
-              They truly understand how to translate business needs into
-              technical solutions. The mobile app increased customer engagement
-              by 40% in three months.
-            </p>
-            <div class="testimonial-author">
-              <h4>Lewis Sampa</h4>
-              <p>Founder, Sampa Innovations</p>
-            </div>
-          </div>
-
-          <div class="testimonial-card-modern">
-            <div class="testimonial-header">
-              <div class="rating">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i
-                ><i class="fas fa-star"></i><i class="fas fa-star"></i
-                ><i class="fas fa-star"></i>
-              </div>
-              <i class="fas fa-quote-right quote-icon"></i>
-            </div>
-            <p class="testimonial-text">
-              Professional, skilled, and genuinely invested in our success. The
-              IoT solution they built for our farm has transformed how we manage
-              irrigation and monitoring. Highly recommend.
-            </p>
-            <div class="testimonial-author">
-              <h4>Christine Mwansa</h4>
-              <p>Director, Agri-Connect Zambia</p>
-            </div>
+          <!-- Controls -->
+          <div class="carousel-controls">
+            <button
+              class="carousel-btn"
+              id="prevBtn"
+              aria-label="Previous testimonial"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel-dots" id="dotsContainer"></div>
+            <button
+              class="carousel-btn"
+              id="nextBtn"
+              aria-label="Next testimonial"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -289,7 +742,9 @@
     <section class="cta-modern">
       <div class="container">
         <div class="cta-content">
-          <h2>Ready to have a Digital Presence?</h2>
+          <h2>
+            Ready to have a Digital <span class="gradient-text">Presence</span>?
+          </h2>
           <p>
             Let's discuss how we can bring your vision to life with cutting-edge
             technology
@@ -369,6 +824,7 @@
     </footer>
 
     <script>
+      // Mobile toggle
       const mobileToggle = document.querySelector(".mobile-toggle");
       const navMenu = document.querySelector(".nav-menu");
       mobileToggle.addEventListener("click", function () {
@@ -378,6 +834,7 @@
         icon.classList.toggle("fa-times");
       });
 
+      // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
@@ -389,6 +846,7 @@
         });
       });
 
+      // Intersection Observer for animations
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -403,7 +861,7 @@
 
       document
         .querySelectorAll(
-          ".service-card-image, .process-step, .testimonial-card-modern",
+          ".service-card-image, .process-step, .project-card-featured",
         )
         .forEach((el) => {
           el.style.opacity = "0";
@@ -411,6 +869,171 @@
           el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
           observer.observe(el);
         });
+
+      // ===== TESTIMONIALS CAROUSEL (Auto-slide) =====
+      (function () {
+        const track = document.getElementById("testimonialsTrack");
+        const cards = track.querySelectorAll(".testimonial-card-modern");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const dotsContainer = document.getElementById("dotsContainer");
+        let currentIndex = 0;
+        let visibleCards = 1;
+        const totalCards = cards.length;
+        let autoSlideInterval;
+
+        function getVisibleCount() {
+          const width = window.innerWidth;
+          if (width >= 1024) return 3;
+          if (width >= 768) return 2;
+          return 1;
+        }
+
+        function updateCarousel() {
+          const cardWidth = track.parentElement.offsetWidth / visibleCards;
+          const offset = -currentIndex * cardWidth;
+          track.style.transform = `translateX(${offset}px)`;
+          cards.forEach((card, idx) => {
+            const isVisible =
+              idx >= currentIndex && idx < currentIndex + visibleCards;
+            card.classList.toggle("active", isVisible);
+          });
+        }
+
+        function createDots() {
+          dotsContainer.innerHTML = "";
+          const dotCount = Math.ceil(totalCards / visibleCards);
+          for (let i = 0; i < dotCount; i++) {
+            const dot = document.createElement("button");
+            dot.classList.add("carousel-dot");
+            dot.setAttribute("data-index", i);
+            dot.addEventListener("click", function () {
+              const idx = parseInt(this.dataset.index);
+              const maxIndex = Math.max(0, totalCards - visibleCards);
+              currentIndex = Math.min(idx * visibleCards, maxIndex);
+              updateCarousel();
+              updateDots();
+              updateButtons();
+              resetAutoSlide();
+            });
+            dotsContainer.appendChild(dot);
+          }
+          updateDots();
+        }
+
+        function updateDots() {
+          const dots = dotsContainer.querySelectorAll(".carousel-dot");
+          const currentDotIndex = Math.floor(currentIndex / visibleCards);
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentDotIndex);
+          });
+        }
+
+        function updateButtons() {
+          prevBtn.disabled = currentIndex === 0;
+          nextBtn.disabled = currentIndex >= totalCards - visibleCards;
+        }
+
+        function nextSlide() {
+          const maxIndex = Math.max(0, totalCards - visibleCards);
+          if (currentIndex < maxIndex) {
+            currentIndex = Math.min(currentIndex + visibleCards, maxIndex);
+          } else {
+            // Loop to start
+            currentIndex = 0;
+          }
+          updateCarousel();
+          updateDots();
+          updateButtons();
+        }
+
+        function prevSlide() {
+          if (currentIndex > 0) {
+            currentIndex = Math.max(0, currentIndex - visibleCards);
+          } else {
+            // Loop to end
+            currentIndex = Math.max(0, totalCards - visibleCards);
+          }
+          updateCarousel();
+          updateDots();
+          updateButtons();
+        }
+
+        function resetAutoSlide() {
+          if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(nextSlide, 6000);
+          }
+        }
+
+        function startAutoSlide() {
+          if (autoSlideInterval) clearInterval(autoSlideInterval);
+          autoSlideInterval = setInterval(nextSlide, 6000);
+        }
+
+        function stopAutoSlide() {
+          if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+          }
+        }
+
+        // Event listeners
+        prevBtn.addEventListener("click", function () {
+          prevSlide();
+          resetAutoSlide();
+        });
+        nextBtn.addEventListener("click", function () {
+          nextSlide();
+          resetAutoSlide();
+        });
+
+        // Pause on hover
+        const carouselContainer = document.querySelector(
+          ".testimonials-carousel",
+        );
+        carouselContainer.addEventListener("mouseenter", stopAutoSlide);
+        carouselContainer.addEventListener("mouseleave", startAutoSlide);
+
+        // Resize handler
+        let resizeTimeout;
+        window.addEventListener("resize", function () {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            const newVisible = getVisibleCount();
+            if (newVisible !== visibleCards) {
+              visibleCards = newVisible;
+              createDots();
+              const maxIndex = Math.max(0, totalCards - visibleCards);
+              if (currentIndex > maxIndex) currentIndex = maxIndex;
+              updateCarousel();
+              updateButtons();
+            } else {
+              updateCarousel();
+            }
+          }, 200);
+        });
+
+        // Init
+        function initCarousel() {
+          visibleCards = getVisibleCount();
+          createDots();
+          updateCarousel();
+          updateButtons();
+          startAutoSlide();
+        }
+
+        if (document.readyState === "complete") {
+          initCarousel();
+        } else {
+          window.addEventListener("load", initCarousel);
+        }
+
+        // Cleanup
+        window.addEventListener("beforeunload", function () {
+          stopAutoSlide();
+        });
+      })();
     </script>
   </body>
 </html>
