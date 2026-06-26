@@ -9,6 +9,212 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <style>
+      /* === reused styles from web development page === */
+      .project-image {
+        position: relative;
+        width: 100%;
+        padding-top: 66.67%;
+        background: #1e293b;
+        border-radius: 0.75rem 0.75rem 0 0;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+      .project-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        transition: transform 0.4s ease;
+      }
+      .project-card:hover .project-image img {
+        transform: scale(1.02);
+      }
+      .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 0.75rem 0.75rem 0 0;
+      }
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+      .project-link {
+        background: #fff;
+        color: #0f172a;
+        padding: 0.6rem 1.2rem;
+        border-radius: 2rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .project-link:hover {
+        background: #e2e8f0;
+        transform: translateY(-2px);
+      }
+      .project-info {
+        padding: 1.25rem 1.25rem 1.5rem;
+        background: #fff;
+        border-radius: 0 0 0.75rem 0.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        border-top: 1px solid #f1f5f9;
+      }
+      .project-info h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.4rem;
+        color: #0f172a;
+      }
+      .project-info p {
+        color: #475569;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 0.75rem;
+      }
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .project-tech span {
+        background: #f1f5f9;
+        color: #334155;
+        padding: 0.2rem 0.7rem;
+        border-radius: 1rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+      .project-filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-bottom: 2.5rem;
+      }
+      .filter-btn {
+        background: #f1f5f9;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 2rem;
+        font-weight: 600;
+        color: #334155;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: #0f172a;
+        color: #fff;
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      .project-card {
+        border-radius: 0.75rem;
+        background: #fff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+        overflow: hidden;
+      }
+      .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+      }
+      .projects-cta {
+        text-align: center;
+        margin-top: 2.5rem;
+      }
+      .btn-cta-primary {
+        background: #0f172a;
+        color: #fff;
+        padding: 0.75rem 2rem;
+        border-radius: 2.5rem;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .btn-cta-primary:hover {
+        background: #1e293b;
+        transform: translateY(-2px);
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0f172a;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .section-subtitle {
+        color: #64748b;
+        font-size: 1.1rem;
+        margin-top: 0.25rem;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      .projects-section {
+        padding: 4rem 0;
+        background: #f8fafc;
+      }
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 640px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .project-filters {
+          gap: 0.5rem;
+        }
+        .filter-btn {
+          padding: 0.4rem 1rem;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Header -->
@@ -35,11 +241,11 @@
     <section class="service-hero">
       <div class="container">
         <h1 class="page-title">
-          Mobile App <span class="gradient-text">Development</span>
+          Mobile <span class="gradient-text">App Development</span>
         </h1>
         <p class="page-subtitle">
-          Native-quality cross‑platform mobile apps that engage users and drive
-          business growth.
+          Cross‑platform mobile solutions that deliver seamless, native‑quality
+          experiences for iOS and Android.
         </p>
       </div>
     </section>
@@ -50,45 +256,142 @@
         <div class="section-header">
           <h2 class="section-title">Technologies We Use</h2>
           <p class="section-subtitle">
-            Modern frameworks for powerful mobile experiences
+            Modern frameworks for building robust mobile apps
           </p>
         </div>
         <div class="tech-grid-modern">
-          <!-- Cross-Platform -->
           <div class="tech-category">
             <div class="tech-content">
               <h3>Cross‑Platform</h3>
               <div class="tech-tags">
                 <span class="tech-tag">React Native</span>
                 <span class="tech-tag">Flutter</span>
-                <span class="tech-tag">Ionic</span>
+                <span class="tech-tag">Xamarin</span>
+              </div>
+            </div>
+          </div>
+          <div class="tech-category">
+            <div class="tech-content">
+              <h3>Native</h3>
+              <div class="tech-tags">
+                <span class="tech-tag">Swift (iOS)</span>
+                <span class="tech-tag">Kotlin (Android)</span>
+              </div>
+            </div>
+          </div>
+          <div class="tech-category">
+            <div class="tech-content">
+              <h3>Backend &amp; Cloud</h3>
+              <div class="tech-tags">
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">AWS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS SECTION ========== -->
+    <section class="projects-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Our Recent <span class="gradient-text">Mobile Apps</span>
+          </h2>
+          <p class="section-subtitle">
+            Recent apps we've designed and developed for clients
+          </p>
+        </div>
+
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="health">
+            Health &amp; Fitness
+          </button>
+          <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+          <button class="filter-btn" data-filter="business">Business</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- 1. SmartFit Tracker (Health) -->
+          <div class="project-card" data-category="health">
+            <div class="project-image">
+              <img
+                src="assets/smartfit-tracker.png"
+                alt="SmartFit Tracker app"
+              />
+              <div class="project-overlay">
+                <a href="#" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                >
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>SmartFit Tracker</h3>
+              <p>
+                Fitness tracking app with real‑time heart rate monitoring,
+                workout plans, and social challenges.
+              </p>
+              <div class="project-tech">
+                <span>React Native</span><span>Firebase</span
+                ><span>Node.js</span>
               </div>
             </div>
           </div>
 
-          <!-- iOS Native -->
-          <div class="tech-category">
-            <div class="tech-content">
-              <h3>iOS Native</h3>
-              <div class="tech-tags">
-                <span class="tech-tag">Swift</span>
-                <span class="tech-tag">UIKit</span>
-                <span class="tech-tag">SwiftUI</span>
+          <!-- 2. EcoDrive (Lifestyle) -->
+          <div class="project-card" data-category="lifestyle">
+            <div class="project-image">
+              <img src="assets/ecodrive.png" alt="EcoDrive app" />
+              <div class="project-overlay">
+                <a href="#" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                >
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>EcoDrive</h3>
+              <p>
+                Carbon‑footprint tracking for drivers, offering route
+                optimization and eco‑friendly driving tips.
+              </p>
+              <div class="project-tech">
+                <span>Flutter</span><span>Google Maps API</span
+                ><span>Python</span>
               </div>
             </div>
           </div>
 
-          <!-- Android Native -->
-          <div class="tech-category">
-            <div class="tech-content">
-              <h3>Android Native</h3>
-              <div class="tech-tags">
-                <span class="tech-tag">Kotlin</span>
-                <span class="tech-tag">Jetpack</span>
-                <span class="tech-tag">Compose</span>
+          <!-- 4. BizHub (Business) -->
+          <div class="project-card" data-category="business">
+            <div class="project-image">
+              <img src="assets/bizhub.png" alt="BizHub app" />
+              <div class="project-overlay">
+                <a href="#" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                >
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>BizHub</h3>
+              <p>
+                All‑in‑one business management app with invoicing, inventory,
+                and team collaboration tools.
+              </p>
+              <div class="project-tech">
+                <span>React Native</span><span>Node.js</span
+                ><span>PostgreSQL</span>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="projects-cta">
+          <a href="#" class="btn-cta-primary"
+            >View All Apps <i class="fas fa-arrow-right"></i
+          ></a>
         </div>
       </div>
     </section>
@@ -97,8 +400,8 @@
     <section class="cta-modern">
       <div class="container">
         <div class="cta-content">
-          <h2>Ready to Launch Your App?</h2>
-          <p>Let's turn your app idea into a reality that users love</p>
+          <h2>Ready to Build Your Mobile App?</h2>
+          <p>Let's turn your idea into a powerful mobile experience</p>
           <div class="cta-buttons">
             <a href="contact.html" class="btn-cta-primary"> Contact Us </a>
             <a href="index.html" class="btn-cta-secondary">Back to Home</a>
@@ -175,6 +478,7 @@
     </footer>
 
     <script>
+      // Mobile toggle
       const mobileToggle = document.querySelector(".mobile-toggle");
       const navMenu = document.querySelector(".nav-menu");
       mobileToggle.addEventListener("click", function () {
@@ -182,6 +486,26 @@
         const icon = this.querySelector("i");
         icon.classList.toggle("fa-bars");
         icon.classList.toggle("fa-times");
+      });
+
+      // Filtering
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const projectCards = document.querySelectorAll(".project-card");
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          this.classList.add("active");
+          const filterValue = this.dataset.filter;
+          projectCards.forEach((card) => {
+            const category = card.dataset.category;
+            if (filterValue === "all" || category === filterValue) {
+              card.style.display = "block";
+              card.style.animation = "fadeUp 0.5s ease forwards";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
       });
     </script>
   </body>

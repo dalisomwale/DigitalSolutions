@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IoT & Smart Automation | DigitalSolutions</title>
+    <title>IoT & Automation | DigitalSolutions</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
-      /* Same additional styles for project cards as on web-dev page */
+      /* same styles as above – omitted for brevity, but identical */
       .project-image {
         position: relative;
         width: 100%;
@@ -69,9 +69,6 @@
       .project-link:hover {
         background: #e2e8f0;
         transform: translateY(-2px);
-      }
-      .project-link i {
-        font-size: 0.8rem;
       }
       .project-info {
         padding: 1.25rem 1.25rem 1.5rem;
@@ -240,26 +237,26 @@
       </div>
     </header>
 
-    <!-- Service Hero (IoT) -->
+    <!-- Service Hero -->
     <section class="service-hero">
       <div class="container">
         <h1 class="page-title">
-          IoT & <span class="gradient-text">Smart Automation</span>
+          IoT &amp; <span class="gradient-text">Smart Automation</span>
         </h1>
         <p class="page-subtitle">
-          Intelligent solutions that connect devices, automate processes, and
-          deliver real-time insights for homes, farms, and industries.
+          Intelligent IoT solutions including smart home systems, automated
+          irrigation, and connected security networks.
         </p>
       </div>
     </section>
 
-    <!-- Technologies (IoT-focused) -->
+    <!-- Technologies -->
     <section class="service-tech">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Technologies We Use</h2>
           <p class="section-subtitle">
-            Hardware and software stacks for robust IoT deployments
+            Hardware and software for smart automation
           </p>
         </div>
         <div class="tech-grid-modern">
@@ -267,11 +264,9 @@
             <div class="tech-content">
               <h3>Hardware</h3>
               <div class="tech-tags">
-                <span class="tech-tag">ESP32</span>
+                <span class="tech-tag">ESP8266</span>
                 <span class="tech-tag">Raspberry Pi</span>
                 <span class="tech-tag">Arduino</span>
-                <span class="tech-tag">Sensors</span>
-                <span class="tech-tag">Actuators</span>
               </div>
             </div>
           </div>
@@ -281,21 +276,17 @@
               <div class="tech-tags">
                 <span class="tech-tag">MQTT</span>
                 <span class="tech-tag">LoRaWAN</span>
-                <span class="tech-tag">BLE</span>
-                <span class="tech-tag">Wi-Fi</span>
                 <span class="tech-tag">Zigbee</span>
               </div>
             </div>
           </div>
           <div class="tech-category">
             <div class="tech-content">
-              <h3>Cloud & Analytics</h3>
+              <h3>Cloud &amp; Analytics</h3>
               <div class="tech-tags">
                 <span class="tech-tag">AWS IoT</span>
-                <span class="tech-tag">Azure IoT</span>
                 <span class="tech-tag">Node-RED</span>
                 <span class="tech-tag">InfluxDB</span>
-                <span class="tech-tag">Grafana</span>
               </div>
             </div>
           </div>
@@ -303,166 +294,111 @@
       </div>
     </section>
 
-    <!-- ========== PROJECTS SECTION (identical to web-dev) ========== -->
+    <!-- ========== PROJECTS SECTION ========== -->
     <section class="projects-section">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">
-            Our <span class="gradient-text">Projects</span>
+            Our Recent <span class="gradient-text">IoT Projects</span>
           </h2>
           <p class="section-subtitle">
-            Recent websites we've designed and developed – click a card to
-            explore the live site.
+            Recent smart automation solutions we've delivered
           </p>
         </div>
 
         <div class="project-filters">
           <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="corporate">Corporate</button>
-          <button class="filter-btn" data-filter="portfolio">Portfolio</button>
-          <button class="filter-btn" data-filter="startup">Startup</button>
+          <button class="filter-btn" data-filter="home">Smart Home</button>
+          <button class="filter-btn" data-filter="agriculture">
+            Agriculture
+          </button>
+          <button class="filter-btn" data-filter="security">Security</button>
         </div>
 
         <div class="projects-grid">
-          <!-- 1. Proflight Inventory -->
-          <div class="project-card" data-category="corporate">
+          <!-- 1. SmartHome Hub (Home) -->
+          <div class="project-card" data-category="home">
             <div class="project-image">
-              <img
-                src="assets/proflight-inventory.png"
-                alt="Proflight Inventory landing page"
-              />
+              <img src="assets/smarthome-hub.png" alt="SmartHome Hub" />
               <div class="project-overlay">
-                <a
-                  href="https://proflight-inventory.click/"
-                  target="_blank"
-                  class="project-link"
+                <a href="#" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i> Live Demo</a
                 >
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
               </div>
             </div>
             <div class="project-info">
-              <h3>Proflight Inventory</h3>
+              <h3>SmartHome Hub</h3>
               <p>
-                Streamlined inventory management system for airlines with
-                real-time tracking, analytics, and secure dashboard access.
+                Centralised control for lighting, climate, and appliances with
+                voice and mobile app integration.
               </p>
               <div class="project-tech">
-                <span>React</span><span>Node.js</span><span>MongoDB</span
-                ><span>JWT</span>
+                <span>Raspberry Pi</span><span>MQTT</span><span>React</span>
               </div>
             </div>
           </div>
 
-          <!-- 2. Fern Media -->
-          <div class="project-card" data-category="portfolio">
+          <!-- 2. AgriSense (Agriculture) -->
+          <div class="project-card" data-category="agriculture">
             <div class="project-image">
-              <img
-                src="assets/fern-media-portfolio.png"
-                alt="Fern Media landing page"
-              />
+              <img src="assets/agrisense.png" alt="AgriSense" />
               <div class="project-overlay">
-                <a
-                  href="https://fern-media-portfolio.vercel.app/"
-                  target="_blank"
-                  class="project-link"
+                <a href="#" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i> Live Demo</a
                 >
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
               </div>
             </div>
             <div class="project-info">
-              <h3>Fern Media — Visual Storytelling</h3>
+              <h3>AgriSense</h3>
               <p>
-                Premium portfolio for photographer Fernando Yakobo, showcasing
-                portrait, brand, and corporate photography with a cinematic
-                aesthetic.
+                Automated irrigation and soil monitoring system using LoRaWAN
+                sensors and predictive analytics.
               </p>
               <div class="project-tech">
-                <span>Next.js</span><span>Tailwind</span
-                ><span>Framer Motion</span><span>Vercel</span>
+                <span>ESP8266</span><span>LoRaWAN</span><span>Node-RED</span>
               </div>
             </div>
           </div>
 
-          <!-- 3. DigitalSolutions Agency -->
-          <div class="project-card" data-category="corporate">
+          <!-- 3. SecureGate (Security) -->
+          <div class="project-card" data-category="security">
             <div class="project-image">
-              <img
-                src="assets/digital-solutions.png"
-                alt="DigitalSolutions agency landing page"
-              />
+              <img src="assets/securegate.png" alt="SecureGate" />
               <div class="project-overlay">
-                <a
-                  href="https://digital-solutions-six.vercel.app/"
-                  target="_blank"
-                  class="project-link"
+                <a href="#" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i> Live Demo</a
                 >
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
               </div>
             </div>
             <div class="project-info">
-              <h3>DigitalSolutions — Agency Site</h3>
+              <h3>SecureGate</h3>
               <p>
-                Our corporate website highlighting web development, mobile apps,
-                and IoT solutions with client success stories and clear service
-                overview.
+                Smart access control system with facial recognition, real‑time
+                alerts, and remote management.
               </p>
               <div class="project-tech">
-                <span>React</span><span>Node.js</span><span>Tailwind</span
-                ><span>Vercel</span>
+                <span>Arduino</span><span>OpenCV</span><span>Node.js</span>
               </div>
             </div>
           </div>
 
-          <!-- 4. Umozi Savings -->
-          <div class="project-card" data-category="startup">
-            <div class="project-image">
-              <img
-                src="assets/umozisavings.png"
-                alt="Umozi Savings landing page"
-              />
-              <div class="project-overlay">
-                <a
-                  href="https://www.umozisavings.com/"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3>Umozi Savings — Village Banking</h3>
-              <p>
-                Easy-to-use banking platform for community savings and loans,
-                promoting financial inclusion with a secure, mobile-first
-                interface.
-              </p>
-              <div class="project-tech">
-                <span>React</span><span>Firebase</span><span>Tailwind</span
-                ><span>Stripe</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div class="projects-cta">
           <a href="#" class="btn-cta-primary"
-            >View All Projects <i class="fas fa-arrow-right"></i
+            >View All IoT Projects <i class="fas fa-arrow-right"></i
           ></a>
         </div>
       </div>
     </section>
-    <!-- ========== END PROJECTS SECTION ========== -->
 
     <!-- CTA -->
     <section class="cta-modern">
       <div class="container">
         <div class="cta-content">
           <h2>Ready to Automate Your Operations?</h2>
-          <p>Let's build a smart IoT solution that transforms your business</p>
+          <p>
+            Let's build a smart solution that drives efficiency and innovation
+          </p>
           <div class="cta-buttons">
             <a href="contact.html" class="btn-cta-primary"> Contact Us </a>
             <a href="index.html" class="btn-cta-secondary">Back to Home</a>
@@ -549,10 +485,9 @@
         icon.classList.toggle("fa-times");
       });
 
-      // Project filters
+      // Filtering
       const filterBtns = document.querySelectorAll(".filter-btn");
       const projectCards = document.querySelectorAll(".project-card");
-
       filterBtns.forEach((btn) => {
         btn.addEventListener("click", function () {
           filterBtns.forEach((b) => b.classList.remove("active"));
