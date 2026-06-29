@@ -219,10 +219,10 @@
         background: #0f172a;
         color: #fff;
         border: none;
-        width: 28px; /* reduced from 36px */
-        height: 28px; /* reduced from 36px */
+        width: 28px;
+        height: 28px;
         border-radius: 50%;
-        font-size: 0.75rem; /* reduced */
+        font-size: 0.75rem;
         cursor: pointer;
         transition:
           background 0.2s,
@@ -278,6 +278,24 @@
       @media (max-width: 767px) {
         .testimonial-card-modern {
           flex: 0 0 100%;
+        }
+      }
+
+      /* ---------- HIDE HERO IMAGE ON MOBILE ---------- */
+      @media (max-width: 767px) {
+        .hero-visual {
+          display: none !important;
+        }
+        .hero-text {
+          width: 100%;
+          text-align: center;
+        }
+        .hero-stats {
+          justify-content: center;
+        }
+        .hero-content {
+          flex-direction: column;
+          align-items: center;
         }
       }
 
@@ -500,7 +518,7 @@
                 analytics.
               </p>
               <div class="project-tech">
-                <span>React</span><span>Node.js</span><span>MongoDB</span>
+                <span>PHP</span><span>Node.js</span><span>CSS</span>
               </div>
             </div>
           </div>
@@ -528,7 +546,7 @@
                 Premium photography portfolio with a cinematic, elegant design.
               </p>
               <div class="project-tech">
-                <span>Next.js</span><span>Tailwind</span>
+                <span>HTML</span><span>Tailwind</span>
               </div>
             </div>
           </div>
@@ -580,7 +598,7 @@
               <h3>Umozi Savings — Village Banking</h3>
               <p>Community banking platform promoting financial inclusion.</p>
               <div class="project-tech">
-                <span>React</span><span>Firebase</span><span>Tailwind</span>
+                <span>React</span><span>MYSQL</span><span>Tailwind</span>
               </div>
             </div>
           </div>
@@ -748,8 +766,8 @@
             Ready to have a Digital <span class="gradient-text">Presence</span>?
           </h2>
           <p>
-            Let's discuss how we can bring your vision to life with cutting-edge
-            technology
+            Let's discuss how we can bring your vision to life with digital
+            solutions.
           </p>
           <div class="cta-buttons">
             <a href="contact.html" class="btn-cta-primary"> Contact Us </a>
@@ -767,8 +785,9 @@
               <i class="fas fa-code-branch"></i><span>DigitalSolutions</span>
             </div>
             <p>
-              Providing tailored technology solutions to help businesses thrive
-              in today's digital landscape since 2020.
+              Since 2020, we have built custom websites and apps to help
+              businesses grow, save time, protect data and digitise their
+              operations.
             </p>
             <div class="social-links">
               <a
@@ -806,10 +825,10 @@
           <div class="footer-column">
             <h3>Contact</h3>
             <ul class="contact-info">
-              <li><i class="fas fa-phone"></i> +260 765635768</li>
+              <li><i class="fas fa-phone"></i> +260 772387373</li>
               <li><i class="fas fa-envelope"></i> info@digitalsolutions.com</li>
               <li>
-                <i class="fas fa-map-marker-alt"></i> Foxdale, Lusaka, Zambia
+                <i class="fas fa-map-marker-alt"></i> Munali, Lusaka, Zambia
               </li>
             </ul>
           </div>
